@@ -14,12 +14,13 @@ Pagina de prueba/
 ├── js/
 │   ├── main.js               # JavaScript para interactividad general.
 │   ├── pagina_nueva.js       # JavaScript específico para la nueva página.
-├── index.html                # Página principal con menú de navegación.
-├── menu.html                 # Página que muestra el menú digital de la cafetería.
-├── promociones.html          # Página que presenta promociones y ofertas especiales.
-├── equipo.html               # Página que presenta al equipo de baristas y staff.
-├── contacto.html             # Página con formulario de contacto y ubicación.
-└── pagina_nueva.html         # Nueva página creada para el café.
+├── pages/
+    ├── index.html                # Página principal con menú de navegación.
+    ├── menu.html                 # Página que muestra el menú digital de la cafetería.
+    ├── promociones.html          # Página que presenta promociones y ofertas especiales.
+    ├── equipo.html               # Página que presenta al equipo de baristas y staff.
+    ├── contacto.html             # Página con formulario de contacto y ubicación.
+    └── pagina_nueva.html         # Nueva página creada para el café.
 ```
 
 ### Descripción de las Páginas
