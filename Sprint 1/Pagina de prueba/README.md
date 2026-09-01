@@ -1,48 +1,99 @@
-# README for Café Webpage Project
+# Documentación del Portal Web - Pausa Café
 
-## Proyecto: Portal Cafetería Multipágina
+Este repositorio contiene el desarrollo del portal web multipágina para **Pausa Café**, un sitio web moderno, responsivo y dinámico enfocado en café de especialidad y pastelería artesanal.
 
-Este proyecto consiste en un portal web para una cafetería, diseñado para ser atractivo y funcional. A continuación se detallan las características y la estructura del proyecto.
+---
 
-### Estructura del Proyecto
+## 📁 Estructura del Proyecto
 
 ```
 Pagina de prueba/
+├── assets/
+│   └── images/
+│       ├── croissant.jpg      # Fotografía de pastelería artesanal
+│       ├── espresso.jpg       # Fotografía de café espresso
+│       ├── hero.jpg           # Imagen principal para la sección Hero
+│       └── interior.jpg       # Fotografía del interior de la cafetería
 ├── css/
-│   ├── styles.css            # Estilos globales para el portal.
-│   ├── pagina_nueva_styles.css # Estilos específicos para la nueva página.
+│   └── styles.css             # Hoja de estilos global, variables, componentes y media queries
 ├── js/
-│   ├── main.js               # JavaScript para interactividad general.
-│   ├── pagina_nueva.js       # JavaScript específico para la nueva página.
+│   └── main.js                # Lógica del carrito (localStorage), validaciones y feedback (Toast)
 ├── pages/
-    ├── index.html                # Página principal con menú de navegación.
-    ├── menu.html                 # Página que muestra el menú digital de la cafetería.
-    ├── promociones.html          # Página que presenta promociones y ofertas especiales.
-    ├── equipo.html               # Página que presenta al equipo de baristas y staff.
-    ├── contacto.html             # Página con formulario de contacto y ubicación.
-    └── pagina_nueva.html         # Nueva página creada para el café.
+│   ├── index.html             # Página de Inicio (Hero, pilares de marca y filosofía)
+│   ├── menu.html              # Menú digital interactivo con opciones para agregar al pedido
+│   ├── promociones.html       # Catálogo de combos semanales y programa Club Pausa
+│   ├── equipo.html            # Presentación del equipo de baristas, tostadores y pastelería
+│   ├── contacto.html          # Formulario de contacto interactivo, ubicación y horarios
+│   └── reservas.html          # Carrito de pedidos dinámico y formulario de reserva demostrativo
+└── README.md                  # Documentación técnica y funcional del proyecto
 ```
 
-### Descripción de las Páginas
+---
 
-- **index.html**: Página principal que incluye un menú de navegación para acceder a las diferentes secciones del portal.
-- **menu.html**: Muestra el menú digital de la cafetería, organizado en categorías como Cafés, Tés, Pastelería y Sandwiches.
-- **promociones.html**: Presenta las promociones y ofertas especiales, utilizando tarjetas y un diseño de cuadrícula.
-- **equipo.html**: Muestra al personal de la cafetería con tarjetas que incluyen fotos y descripciones breves.
-- **contacto.html**: Contiene un formulario de contacto con campos para nombre, email y mensaje, además de un mapa o dirección física.
-- **pagina_nueva.html**: Nueva página que sigue los principios de diseño del proyecto y contiene contenido relevante para la cafetería.
+## 📄 Descripción Detallada de Archivos
 
-### Instrucciones de Configuración
+### 1. Páginas (`/pages/`)
 
-1. Clona el repositorio en tu máquina local.
-2. Abre el proyecto en tu editor de código preferido.
-3. Asegúrate de que todos los archivos CSS y JS estén correctamente enlazados en las páginas HTML.
-4. Abre `index.html` en un navegador para ver el portal en acción.
+* **`index.html` (Inicio)**:
+  * Presenta la identidad de marca (*Pausa Café*), propuesta de valor, horario de atención y estado en tiempo real.
+  * Secciones: *Hero*, *Pilares de Calidad* (01 Café con origen, 02 Hecho en casa, 03 Un lugar para ti), *Historia y Filosofía*, y llamado a la acción.
+* **`menu.html` (Carta Digital)**:
+  * Menú categorizado en *Cafés* (Espresso, Cappuccino, Latte, Cold brew) y *Para acompañar* (Croissant, Brownie de cacao, Cheesecake).
+  * Cada producto incluye botón interactivo `+ Agregar` con atributos `data-product` y `data-price`.
+* **`promociones.html` (Ofertas y Fidelización)**:
+  * Cuadrícula con combos destacados (*Combo mañanero*, *Tarde dulce*, *Brunch de la casa*).
+  * Tarjeta de fidelización *Club Pausa* ("Tu sexto café va por la casa").
+* **`equipo.html` (Nosotros / Staff)**:
+  * Presentación del equipo humano detrás de la experiencia (Valentina - Barista, Martín - Tostador, Lucía - Pastelera, Tomás - Encargado).
+* **`contacto.html` (Contacto y Ubicación)**:
+  * Formulario con validación en tiempo real (Nombre, Email y Mensaje).
+  * Información física: dirección en Buenos Aires, horarios de lunes a domingo, correo y teléfono de contacto.
+* **`reservas.html` (Mi Pedido y Reserva Demostrativa)**:
+  * Carrito de compras interactivo que renderiza los productos agregados, permite ajustar cantidades (+ / -), eliminar artículos y calcula el total estimado.
+  * Formulario de reserva de mesa/pedido con validación.
 
-### Notas
+---
 
-- Este proyecto utiliza Bootstrap para asegurar un diseño responsivo y atractivo.
-- Se han implementado animaciones suaves y un estilo visual limpio y no sobrecargado.
-- Asegúrate de revisar los archivos de estilos y scripts para personalizar aún más la experiencia del usuario.
+### 2. Estilos (`/css/styles.css`)
 
-¡Disfruta creando y explorando el portal de la cafetería!
+* **Paleta de Colores y Tokens de Diseño (`:root`)**:
+  * `--cream` (`#f5f5dc`): Tono crema suave para tarjetas y contrastes secundarios.
+  * `--paper` (`#fbfaf5`): Fondo principal con estilo papel cálido.
+  * `--coffee` (`#4e342e`): Tono café tostado para tipografía, cabeceras y botones principales.
+  * `--coffee-dark` (`#36231f`): Estado hover de botones y elementos interactivos.
+  * `--ink` (`#171310`): Color de lectura de alto contraste.
+  * `--muted` (`#766c65`): Tono para textos secundarios.
+  * `--accent` (`#c89454`): Tono caramelo / dorado para etiquetas *eyebrow* y acentos.
+  * `--shadow`: Sombra suave difusa con tinte café para elevación de componentes.
+* **Tipografías**:
+  * *Playfair Display* para títulos (`h1`, `h2`, `h3`).
+  * *DM Sans* para textos, menús y formularios.
+* **Diseño Responsivo**:
+  * Breakpoints adaptados para pantallas móviles (`<= 575px`) y tablets/pantallas medianas (`<= 991px`).
+
+---
+
+### 3. Lógica JavaScript (`/js/main.js`)
+
+* **Carrito de Pedidos con `localStorage`**:
+  * `getCart()` / `saveCart()`: Persiste los artículos entre recargas de página bajo la clave `pausa-cafe-cart`.
+  * `updateCount()`: Mantiene sincronizado el contador visual en el navbar (`.cart-count`).
+  * `renderCart()`: Genera dinámicamente los artículos en `reservas.html`, controles de cantidad (+ / -), botón de eliminación y cálculo del total en `$`.
+* **Notificaciones Emergentes (Toast)**:
+  * `toast(message)`: Muestra avisos flotantes de feedback al agregar productos o enviar formularios.
+* **Validación de Formularios**:
+  * Aplica clases de validación de Bootstrap 5 (`was-validated`).
+  * Comprueba que haya al menos un producto en el carrito antes de procesar una reserva.
+* **Automatización del Año**:
+  * Inserta el año corriente automáticamente en los elementos con atributo `[data-year]`.
+
+---
+
+## 🚀 Instrucciones de Uso y Visualización
+
+1. Abre el directorio del proyecto en tu navegador o mediante un servidor local (por ejemplo, Live Server en VS Code).
+2. Ingresa a `pages/index.html` para navegar por todo el portal.
+3. Al hacer clic en `+ Agregar` en cualquier producto del menú o promociones, observarás:
+   * Notificación Toast emergente en la esquina inferior derecha.
+   * Actualización instantánea del contador en el navbar.
+4. Ingresa a `Mi pedido` (`reservas.html`) para ver el desglose del pedido y simular una reserva.
