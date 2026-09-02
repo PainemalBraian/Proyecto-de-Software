@@ -39,7 +39,7 @@
 	/* Tono para bordes y separadores sutiles */
 	--accent: #c89454;
 	/* Tono dorado / caramelo para acentos y destacados */
-	--shadow: 0 18px 500px rgba(78, 52, 46, 0.1);
+	--shadow: 0 18px 50px rgba(78, 52, 46, 0.1);
 	/* Sombra suave con tinte café */
 }
 
