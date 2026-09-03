@@ -1,25 +1,7 @@
 /**
- * ====================================================================
- * Pausa Café - Hoja de Estilos Principal (styles.css)
- * ====================================================================
- * Tabla de Contenidos:
- * 1. Variables Globales y Paleta de Colores (:root)
- * 2. Estilos Base, Reseteo y Tipografía
- * 3. Encabezado, Navbar y Navegación
- * 4. Botones y Componentes Reutilizables
- * 5. Sección Hero (Página de Inicio)
- * 6. Secciones Generales y Grillas
- * 7. Tarjetas de Menú y Productos (Product Cards)
- * 8. Tarjetas de Promociones (Promo Cards)
- * 9. Tarjetas de Equipo / Nosotros (Team Cards)
- * 10. Formularios (Contacto y Reservas)
- * 11. Carrito de Compras / Pedido (Cart UI)
- * 12. Notificaciones Emergentes (Toast)
- * 13. Pie de Página (Footer)
- * 14. Reglas Responsivas (Media Queries)
- */
-
-/* ====================================================================
+   ====================================================================
+	Pausa Café - Hoja de Estilos Principal (styles.css)
+   ====================================================================
    1. Variables Globales y Paleta de Colores
    ==================================================================== */
 :root {
