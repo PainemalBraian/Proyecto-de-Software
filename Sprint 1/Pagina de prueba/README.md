@@ -41,8 +41,9 @@ Pagina de prueba/
   * Menú categorizado en *Cafés* (Espresso, Cappuccino, Latte, Cold brew) y *Para acompañar* (Croissant, Brownie de cacao, Cheesecake).
   * Cada producto incluye botón interactivo `+ Agregar` con atributos `data-product` y `data-price`.
 * **`promociones.html` (Ofertas y Fidelización)**:
-  * Cuadrícula con combos destacados (*Combo mañanero*, *Tarde dulce*, *Brunch de la casa*).
-  * Tarjeta de fidelización *Club Pausa* ("Tu sexto café va por la casa").
+  * Carrusel interactivo (`#promocionesCarousel`) con controles estilizados y transición automática.
+  * 6 promociones destacadas: *Combo mañanero*, *Tarde dulce*, *Brunch de la casa*, *Pausa Helada*, *Degustación de Especialidad* y la tarjeta de fidelización *Club Pausa* ("Tu sexto café va por la casa").
+  * Botones `+ Agregar al pedido` integrados con el carrito global y notificaciones Toast.
 * **`equipo.html` (Nosotros / Staff)**:
   * Presentación del equipo humano detrás de la experiencia (Valentina - Barista, Martín - Tostador, Lucía - Pastelera, Tomás - Encargado).
 * **`contacto.html` (Contacto y Ubicación)**:

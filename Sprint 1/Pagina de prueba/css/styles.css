@@ -439,8 +439,34 @@ h2 em {
 }
 
 /* ====================================================================
-   8. Tarjetas de Promociones (Promo Cards)
+   8. Tarjetas y Carrusel de Promociones (Promo Carousel & Cards)
    ==================================================================== */
+.promo-carousel {
+	position: relative;
+	padding: 0 3.5rem 3rem;
+}
+
+.promo-carousel-card {
+	height: 100%;
+	min-height: 380px;
+	overflow: hidden;
+	background: #fff;
+	border: 1px solid var(--line);
+	box-shadow: 0 10px 30px rgba(78, 52, 46, 0.06);
+	transition: box-shadow 0.3s ease;
+}
+
+.promo-carousel-card:hover {
+	box-shadow: var(--shadow);
+}
+
+.promo-carousel-img {
+	width: 100%;
+	height: 380px;
+	object-fit: cover;
+	display: block;
+}
+
 .promo-card {
 	height: 100%;
 	overflow: hidden;
@@ -455,26 +481,30 @@ h2 em {
 }
 
 .promo-content {
-	padding: 1.8rem;
+	padding: 2.2rem 2.5rem;
 }
 
 .promo-content h2 {
-	font-size: 2rem;
+	font-size: 2.1rem;
+	margin-bottom: 0.75rem;
 }
 
 .promo-content p {
 	color: var(--muted);
+	font-size: 0.98rem;
+	line-height: 1.6;
 }
 
 .pill {
 	display: inline-block;
 	margin-bottom: 1rem;
-	padding: 0.35rem 0.7rem;
+	padding: 0.35rem 0.75rem;
 	border-radius: 99px;
 	background: var(--cream);
 	color: var(--coffee);
-	font-size: 0.72rem;
+	font-size: 0.74rem;
 	font-weight: 700;
+	letter-spacing: 0.02em;
 }
 
 .promo-dark {
@@ -490,9 +520,67 @@ h2 em {
 	color: var(--cream);
 }
 
+.promo-dark .promo-content p {
+	color: rgba(245, 245, 220, 0.88);
+}
+
 .pill-light {
 	background: rgba(245, 245, 220, 0.15);
 	color: var(--cream);
+}
+
+/* Controles de Navegación del Carrusel */
+.promo-control-btn {
+	width: 46px;
+	height: 46px;
+	top: 50%;
+	transform: translateY(-50%);
+	background: var(--coffee);
+	border: 2px solid var(--cream);
+	border-radius: 50%;
+	opacity: 0.92;
+	transition: all 0.25s ease;
+	z-index: 5;
+}
+
+.promo-control-btn:hover,
+.promo-control-btn:focus {
+	background: var(--coffee-dark);
+	opacity: 1;
+	transform: translateY(-50%) scale(1.08);
+	box-shadow: 0 4px 15px rgba(78, 52, 46, 0.25);
+}
+
+.carousel-control-prev.promo-control-btn {
+	left: 0;
+}
+
+.carousel-control-next.promo-control-btn {
+	right: 0;
+}
+
+/* Indicadores de Diapositiva */
+.promo-indicators {
+	margin-bottom: 0;
+	bottom: 0.5rem;
+	gap: 0.5rem;
+}
+
+.promo-indicators [data-bs-target] {
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	background-color: var(--line);
+	border: 2px solid transparent;
+	opacity: 0.7;
+	transition: all 0.3s ease;
+}
+
+.promo-indicators .active {
+	width: 28px;
+	border-radius: 99px;
+	background-color: var(--coffee);
+	opacity: 1;
 }
 
 /* ====================================================================
@@ -741,6 +829,15 @@ textarea:focus {
 	.page-content {
 		padding-top: 4rem;
 	}
+
+	.promo-carousel {
+		padding: 0 1rem 3.5rem;
+	}
+
+	.promo-control-btn {
+		width: 40px;
+		height: 40px;
+	}
 }
 
 @media (max-width: 575px) {
@@ -756,6 +853,26 @@ textarea:focus {
 
 	.floating-card {
 		bottom: 1rem;
+	}
+
+	.promo-carousel {
+		padding: 0 0 3.5rem;
+	}
+
+	.promo-carousel-card {
+		min-height: auto;
+	}
+
+	.promo-carousel-img {
+		height: 230px;
+	}
+
+	.promo-content {
+		padding: 1.6rem 1.25rem;
+	}
+
+	.promo-control-btn {
+		display: none;
 	}
 
 	.category-heading {

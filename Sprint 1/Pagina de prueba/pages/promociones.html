@@ -83,98 +83,315 @@
 				<p>Combos pensados para hacer de tu visita una pausa todavía mejor.</p>
 			</div>
 
-			<!-- Cuadrícula de Promociones -->
-			<div class="row g-4">
-				<!-- Promo 1: Combo mañanero -->
-				<div class="col-md-6">
-					<article class="promo-card">
-						<img
-							src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1000&q=85"
-							alt="Combo mañanero"
-						/>
-						<div class="promo-content">
-							<span class="pill">Lunes a viernes</span>
-							<h2>Combo mañanero</h2>
-							<p>Café filtrado o espresso + croissant de mantequilla.</p>
-							<div class="product-bottom">
-								<strong>$5.90</strong>
-								<button
-									class="add-button"
-									data-product="Combo mañanero"
-									data-price="5.9"
-								>
-									+ Agregar
-								</button>
-							</div>
-						</div>
-					</article>
+			<!-- Carrusel de Promociones -->
+			<div
+				id="promocionesCarousel"
+				class="carousel slide promo-carousel"
+				data-bs-ride="carousel"
+				data-bs-interval="5000"
+			>
+				<!-- Indicadores de navegación del carrusel -->
+				<div class="carousel-indicators promo-indicators">
+					<button
+						type="button"
+						data-bs-target="#promocionesCarousel"
+						data-bs-slide-to="0"
+						class="active"
+						aria-current="true"
+						aria-label="Promoción 1: Combo mañanero"
+					></button>
+					<button
+						type="button"
+						data-bs-target="#promocionesCarousel"
+						data-bs-slide-to="1"
+						aria-label="Promoción 2: Tarde dulce"
+					></button>
+					<button
+						type="button"
+						data-bs-target="#promocionesCarousel"
+						data-bs-slide-to="2"
+						aria-label="Promoción 3: Brunch de la casa"
+					></button>
+					<button
+						type="button"
+						data-bs-target="#promocionesCarousel"
+						data-bs-slide-to="3"
+						aria-label="Promoción 4: Pausa Helada"
+					></button>
+					<button
+						type="button"
+						data-bs-target="#promocionesCarousel"
+						data-bs-slide-to="4"
+						aria-label="Promoción 5: Degustación de Especialidad"
+					></button>
+					<button
+						type="button"
+						data-bs-target="#promocionesCarousel"
+						data-bs-slide-to="5"
+						aria-label="Promoción 6: Club Pausa"
+					></button>
 				</div>
 
-				<!-- Promo 2: Tarde dulce para compartir -->
-				<div class="col-md-6">
-					<article class="promo-card">
-						<img
-							src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1000&q=85"
-							alt="Combo tarde dulce"
-						/>
-						<div class="promo-content">
-							<span class="pill">Todos los días desde las 16:00</span>
-							<h2>Tarde dulce</h2>
-							<p>Dos lattes + cheesecake de frutos rojos para compartir.</p>
-							<div class="product-bottom">
-								<strong>$11.20</strong>
-								<button
-									class="add-button"
-									data-product="Combo tarde dulce"
-									data-price="11.2"
-								>
-									+ Agregar
-								</button>
+				<!-- Diapositivas con los Artículos de Promoción -->
+				<div class="carousel-inner">
+					<!-- Promo 1: Combo mañanero -->
+					<div class="carousel-item active">
+						<div class="row justify-content-center">
+							<div class="col-lg-11 col-xl-10">
+								<article class="promo-carousel-card">
+									<div class="row g-0 h-100 align-items-center">
+										<div class="col-md-6">
+											<img
+												src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1000&q=85"
+												alt="Combo mañanero: café y croissant"
+												class="promo-carousel-img"
+											/>
+										</div>
+										<div class="col-md-6">
+											<div class="promo-content">
+												<span class="pill">Lunes a viernes</span>
+												<h2>Combo mañanero</h2>
+												<p>
+													Comenzá el día con la combinación ideal: café filtrado
+													de tostado medio o espresso doble con un croissant de
+													mantequilla recién horneado.
+												</p>
+												<div class="product-bottom mt-4">
+													<strong>$5.90</strong>
+													<button
+														class="add-button"
+														data-product="Combo mañanero"
+														data-price="5.9"
+													>
+														+ Agregar al pedido
+													</button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</article>
 							</div>
 						</div>
-					</article>
-				</div>
+					</div>
 
-				<!-- Promo 3: Brunch de fin de semana -->
-				<div class="col-md-6">
-					<article class="promo-card">
-						<img
-							src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1000&q=85"
-							alt="Brunch de la casa"
-						/>
-						<div class="promo-content">
-							<span class="pill">Sábados y domingos</span>
-							<h2>Brunch de la casa</h2>
-							<p>Sandwich caprese + cold brew + brownie de cacao.</p>
-							<div class="product-bottom">
-								<strong>$12.50</strong>
-								<button
-									class="add-button"
-									data-product="Brunch de la casa"
-									data-price="12.5"
-								>
-									+ Agregar
-								</button>
+					<!-- Promo 2: Tarde dulce para compartir -->
+					<div class="carousel-item">
+						<div class="row justify-content-center">
+							<div class="col-lg-11 col-xl-10">
+								<article class="promo-carousel-card">
+									<div class="row g-0 h-100 align-items-center">
+										<div class="col-md-6">
+											<img
+												src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1000&q=85"
+												alt="Combo tarde dulce: lattes y cheesecake"
+												class="promo-carousel-img"
+											/>
+										</div>
+										<div class="col-md-6">
+											<div class="promo-content">
+												<span class="pill">Todos los días desde las 16:00</span>
+												<h2>Tarde dulce</h2>
+												<p>
+													El momento perfecto para compartir: dos lattes suaves
+													con leche texturizada y una generosa porción de
+													cheesecake artesanal de frutos rojos.
+												</p>
+												<div class="product-bottom mt-4">
+													<strong>$11.20</strong>
+													<button
+														class="add-button"
+														data-product="Combo tarde dulce"
+														data-price="11.2"
+													>
+														+ Agregar al pedido
+													</button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</article>
 							</div>
 						</div>
-					</article>
+					</div>
+
+					<!-- Promo 3: Brunch de la casa -->
+					<div class="carousel-item">
+						<div class="row justify-content-center">
+							<div class="col-lg-11 col-xl-10">
+								<article class="promo-carousel-card">
+									<div class="row g-0 h-100 align-items-center">
+										<div class="col-md-6">
+											<img
+												src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1000&q=85"
+												alt="Brunch de la casa: sandwich, cold brew y brownie"
+												class="promo-carousel-img"
+											/>
+										</div>
+										<div class="col-md-6">
+											<div class="promo-content">
+												<span class="pill">Sábados y domingos</span>
+												<h2>Brunch de la casa</h2>
+												<p>
+													Experiencia completa de fin de semana: sandwich
+													caprese en pan de masa madre, cold brew infusionado
+													en frío por 18hs y brownie tibio de cacao 70%.
+												</p>
+												<div class="product-bottom mt-4">
+													<strong>$12.50</strong>
+													<button
+														class="add-button"
+														data-product="Brunch de la casa"
+														data-price="12.5"
+													>
+														+ Agregar al pedido
+													</button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</article>
+							</div>
+						</div>
+					</div>
+
+					<!-- Promo 4: Pausa Helada (Nueva) -->
+					<div class="carousel-item">
+						<div class="row justify-content-center">
+							<div class="col-lg-11 col-xl-10">
+								<article class="promo-carousel-card">
+									<div class="row g-0 h-100 align-items-center">
+										<div class="col-md-6">
+											<img
+												src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=1000&q=85"
+												alt="Pausa Helada: Affogato y cookies"
+												class="promo-carousel-img"
+											/>
+										</div>
+										<div class="col-md-6">
+											<div class="promo-content">
+												<span class="pill">Especial tardes</span>
+												<h2>Pausa Helada</h2>
+												<p>
+													El contraste más tentador: affogato de helado de
+													vainilla natural con doble shot de espresso recién
+													extraído, acompañado de dos cookies rústicas con chips
+													de chocolate.
+												</p>
+												<div class="product-bottom mt-4">
+													<strong>$6.80</strong>
+													<button
+														class="add-button"
+														data-product="Pausa Helada"
+														data-price="6.8"
+													>
+														+ Agregar al pedido
+													</button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</article>
+							</div>
+						</div>
+					</div>
+
+					<!-- Promo 5: Degustación de Especialidad (Nueva) -->
+					<div class="carousel-item">
+						<div class="row justify-content-center">
+							<div class="col-lg-11 col-xl-10">
+								<article class="promo-carousel-card">
+									<div class="row g-0 h-100 align-items-center">
+										<div class="col-md-6">
+											<img
+												src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=1000&q=85"
+												alt="Degustación de Especialidad: Café V60 y Carrot Cake"
+												class="promo-carousel-img"
+											/>
+										</div>
+										<div class="col-md-6">
+											<div class="promo-content">
+												<span class="pill">Edición Barista</span>
+												<h2>Degustación de Especialidad</h2>
+												<p>
+													Para amantes del buen café: método filtrado V60 con
+													grano de origen único seleccionado (notas florales y
+													cítricas) maridado con porción de Carrot Cake con
+													frosting de queso crema y nueces.
+												</p>
+												<div class="product-bottom mt-4">
+													<strong>$9.90</strong>
+													<button
+														class="add-button"
+														data-product="Degustación de Especialidad"
+														data-price="9.9"
+													>
+														+ Agregar al pedido
+													</button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</article>
+							</div>
+						</div>
+					</div>
+
+					<!-- Promo 6 / Fidelización: Tarjeta Club Pausa -->
+					<div class="carousel-item">
+						<div class="row justify-content-center">
+							<div class="col-lg-11 col-xl-10">
+								<article class="promo-carousel-card promo-dark">
+									<div class="row g-0 h-100 align-items-center">
+										<div class="col-md-6">
+											<img
+												src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1000&q=85"
+												alt="Tarjeta Club Pausa fidelización"
+												class="promo-carousel-img"
+											/>
+										</div>
+										<div class="col-md-6">
+											<div class="promo-content">
+												<span class="pill pill-light">Club Pausa</span>
+												<h2>Tu sexto café va por la casa.</h2>
+												<p>
+													Queremos premiar tu fidelidad: acumulá seis visitas o
+													pedidos y te invitamos una bebida especial de nuestra
+													carta a elección. Pedí tu membresía en caja o
+													contáctanos.
+												</p>
+												<a href="contacto.html" class="btn btn-cream mt-3">
+													Quiero ser parte <span>→</span>
+												</a>
+											</div>
+										</div>
+									</div>
+								</article>
+							</div>
+						</div>
+					</div>
 				</div>
 
-				<!-- Promo 4 / Fidelización: Tarjeta Club Pausa -->
-				<div class="col-md-6">
-					<article class="promo-card promo-dark">
-						<div class="promo-content">
-							<span class="pill pill-light">Club Pausa</span>
-							<h2>Tu sexto café va por la casa.</h2>
-							<p>
-								Acumula seis visitas y te invitamos una bebida de nuestra carta.
-							</p>
-							<a href="contacto.html" class="btn btn-cream"
-								>Quiero ser parte <span>→</span></a
-							>
-						</div>
-					</article>
-				</div>
+				<!-- Botones de Control Anterior / Siguiente -->
+				<button
+					class="carousel-control-prev promo-control-btn"
+					type="button"
+					data-bs-target="#promocionesCarousel"
+					data-bs-slide="prev"
+					aria-label="Promoción anterior"
+				>
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Anterior</span>
+				</button>
+				<button
+					class="carousel-control-next promo-control-btn"
+					type="button"
+					data-bs-target="#promocionesCarousel"
+					data-bs-slide="next"
+					aria-label="Promoción siguiente"
+				>
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Siguiente</span>
+				</button>
 			</div>
 		</main>
 

@@ -160,13 +160,25 @@ skills:
     triggers:
       - "crear promociones"
       - "ofertas especiales"
+      - "carrusel de promociones"
     rules:
-      - Cuadrícula de combos destacados (Combo mañanero, Tarde dulce,
-        Brunch de la casa) con .card-cafe.
-      - Tarjeta de fidelización "Club Pausa" con su beneficio destacado
-        (ej. sexto café gratis).
-      - Reutilizar el mismo botón "+ Agregar" con data-product/data-price
-        cuando el combo sea agregable al carrito.
+      - Carrusel interactivo (#promocionesCarousel) basado en Bootstrap 5
+        con autoplay pausado en hover, indicadores personalizados
+        (.promo-indicators) y controles circulares estilizados con la paleta
+        de tokens (--coffee, --cream, --accent).
+      - Cada diapositiva contiene un artículo de promoción destacado en
+        formato .promo-carousel-card con imagen representativa de alta calidad,
+        pill de horario/disponibilidad, título, descripción y precio.
+      - 6 promociones destacadas en total:
+          1. Combo mañanero (Café filtrado/espresso + croissant recién horneado).
+          2. Tarde dulce (Dos lattes + cheesecake de frutos rojos).
+          3. Brunch de la casa (Sandwich caprese + cold brew + brownie de cacao).
+          4. Pausa Helada (Affogato artesanal + cookies con chips de chocolate).
+          5. Degustación de Especialidad (Filtrado V60 de origen + Carrot Cake).
+          6. Tarjeta Club Pausa (.promo-dark con beneficio de 6to café gratis).
+      - Reutilizar el botón "+ Agregar al pedido" con clase .add-button y
+        atributos data-product y data-price para integración automática con
+        el carrito centralizado en main.js.
 
   - name: CrearEquipoCafe
     description: Genera la página de staff en pages/equipo.html.
