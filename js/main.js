@@ -23,11 +23,11 @@
 
   // Catálogo de imágenes asociadas a cada artículo de menú y promociones
   const productImages = {
-    "Espresso": "../assets/images/espresso.jpg",
+    "Espresso": "../images/espresso.jpg",
     "Cappuccino": "https://images.unsplash.com/photo-1572442388796-11668a67e53d?auto=format&fit=crop&w=700&q=85",
     "Latte": "https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=700&q=85",
     "Cold brew": "https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=700&q=85",
-    "Croissant": "../assets/images/croissant.jpg",
+    "Croissant": "../images/croissant.jpg",
     "Brownie de cacao": "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=700&q=85",
     "Cheesecake": "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=700&q=85",
     "Combo mañanero": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1000&q=85",
@@ -109,7 +109,7 @@
    */
   const addToCart = (name, price, image) => {
     const cart = getCart();
-    const resolvedImage = image || productImages[name] || "../assets/images/espresso.jpg";
+    const resolvedImage = image || productImages[name] || "../images/espresso.jpg";
     const item = cart.find((entry) => entry.name === name);
     if (item) {
       item.quantity += 1;
@@ -131,7 +131,7 @@
     if (!container) return;
 
     const cart = getCart();
-    
+
     // Si el carrito está vacío, mostrar mensaje informativo
     if (!cart.length) {
       container.innerHTML = '<div class="empty-cart">Todavía no agregaste productos.<br><a class="text-link" href="menu.html">Explorar el menú →</a></div>';
@@ -143,7 +143,7 @@
     let total = 0;
     container.innerHTML = cart.map((item, index) => {
       total += item.price * item.quantity;
-      const imgSrc = item.image || productImages[item.name] || "../assets/images/espresso.jpg";
+      const imgSrc = item.image || productImages[item.name] || "../images/espresso.jpg";
       return `<article class="cart-item">
         <img src="${imgSrc}" alt="${item.name}" class="cart-item-img" />
         <div>
