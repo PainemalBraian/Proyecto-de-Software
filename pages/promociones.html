@@ -1,420 +1,337 @@
 <!doctype html>
 <html lang="es">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>Pausa Café | Promociones</title>
-		
-		<!-- Tipografías de Google Fonts -->
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
-			rel="stylesheet"
-		/>
-		
-		<!-- Estilos de Bootstrap y Personalizados -->
-		<link
-			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-			rel="stylesheet"
-		/>
-		<link rel="stylesheet" href="../css/styles.css" />
-	</head>
-	<body>
-		<!-- ==========================================
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Pausa Café | Promociones</title>
+
+	<!-- Tipografías de Google Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link
+		href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+		rel="stylesheet" />
+
+	<!-- Estilos de Bootstrap y Personalizados -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+	<link rel="stylesheet" href="../css/styles.css" />
+</head>
+
+<body>
+	<!-- ==========================================
 		     Encabezado y Barra de Navegación
 		     ========================================== -->
-		<header class="site-header">
-			<nav class="navbar navbar-expand-lg">
-				<div class="container">
-					<!-- Identidad de marca -->
-					<a class="navbar-brand" href="index.html"
-						><span class="brand-mark">P</span
-						><span>Pausa<span class="brand-light">Café</span></span></a
-					>
-					<button
-						class="navbar-toggler"
-						type="button"
-						data-bs-toggle="collapse"
-						data-bs-target="#mainNav"
-						aria-label="Abrir navegación"
-					>
-						<span class="navbar-toggler-icon"></span>
-					</button>
-					<div class="collapse navbar-collapse" id="mainNav">
-						<ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
-							<li class="nav-item">
-								<a class="nav-link" href="index.html">Inicio</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="menu.html">Menú</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link active" href="promociones.html"
-									>Promociones</a
-								>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="equipo.html">Nosotros</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="contacto.html">Contacto</a>
-							</li>
-							<!-- Indicador del carrito -->
-							<li class="nav-item">
-								<a class="nav-link nav-reserve" href="reservas.html"
-									>Mi pedido <span class="cart-count">0</span></a
-								>
-							</li>
-						</ul>
-					</div>
+	<header class="site-header">
+		<nav class="navbar navbar-expand-lg">
+			<div class="container">
+				<!-- Identidad de marca -->
+				<a class="navbar-brand" href="../index.html"><span class="brand-mark">P</span><span>Pausa<span
+							class="brand-light">Café</span></span></a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+					aria-label="Abrir navegación">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="mainNav">
+					<ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+						<li class="nav-item">
+							<a class="nav-link" href="../index.html">Inicio</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="menu.html">Menú</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link active" href="promociones.html">Promociones</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="equipo.html">Nosotros</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="contacto.html">Contacto</a>
+						</li>
+						<!-- Indicador del carrito -->
+						<li class="nav-item">
+							<a class="nav-link nav-reserve" href="reservas.html">Mi pedido <span
+									class="cart-count">0</span></a>
+						</li>
+					</ul>
 				</div>
-			</nav>
-		</header>
+			</div>
+		</nav>
+	</header>
 
-		<!-- ==========================================
+	<!-- ==========================================
 		     Contenido de Promociones y Combos
 		     ========================================== -->
-		<main class="container page-content">
-			<!-- Introducción a la sección de promociones -->
-			<div class="page-intro">
-				<p class="eyebrow">Para disfrutar más</p>
-				<h1>Promociones<br /><em>de la semana.</em></h1>
-				<p>Combos pensados para hacer de tu visita una pausa todavía mejor.</p>
+	<main class="container page-content">
+		<!-- Introducción a la sección de promociones -->
+		<div class="page-intro">
+			<p class="eyebrow">Para disfrutar más</p>
+			<h1>Promociones<br /><em>de la semana.</em></h1>
+			<p>Combos pensados para hacer de tu visita una pausa todavía mejor.</p>
+		</div>
+
+		<!-- Carrusel de Promociones -->
+		<div id="promocionesCarousel" class="carousel slide promo-carousel" data-bs-ride="carousel"
+			data-bs-interval="5000">
+			<!-- Indicadores de navegación del carrusel -->
+			<div class="carousel-indicators promo-indicators">
+				<button type="button" data-bs-target="#promocionesCarousel" data-bs-slide-to="0" class="active"
+					aria-current="true" aria-label="Promoción 1: Combo mañanero"></button>
+				<button type="button" data-bs-target="#promocionesCarousel" data-bs-slide-to="1"
+					aria-label="Promoción 2: Tarde dulce"></button>
+				<button type="button" data-bs-target="#promocionesCarousel" data-bs-slide-to="2"
+					aria-label="Promoción 3: Brunch de la casa"></button>
+				<button type="button" data-bs-target="#promocionesCarousel" data-bs-slide-to="3"
+					aria-label="Promoción 4: Pausa Helada"></button>
+				<button type="button" data-bs-target="#promocionesCarousel" data-bs-slide-to="4"
+					aria-label="Promoción 5: Degustación de Especialidad"></button>
+				<button type="button" data-bs-target="#promocionesCarousel" data-bs-slide-to="5"
+					aria-label="Promoción 6: Club Pausa"></button>
 			</div>
 
-			<!-- Carrusel de Promociones -->
-			<div
-				id="promocionesCarousel"
-				class="carousel slide promo-carousel"
-				data-bs-ride="carousel"
-				data-bs-interval="5000"
-			>
-				<!-- Indicadores de navegación del carrusel -->
-				<div class="carousel-indicators promo-indicators">
-					<button
-						type="button"
-						data-bs-target="#promocionesCarousel"
-						data-bs-slide-to="0"
-						class="active"
-						aria-current="true"
-						aria-label="Promoción 1: Combo mañanero"
-					></button>
-					<button
-						type="button"
-						data-bs-target="#promocionesCarousel"
-						data-bs-slide-to="1"
-						aria-label="Promoción 2: Tarde dulce"
-					></button>
-					<button
-						type="button"
-						data-bs-target="#promocionesCarousel"
-						data-bs-slide-to="2"
-						aria-label="Promoción 3: Brunch de la casa"
-					></button>
-					<button
-						type="button"
-						data-bs-target="#promocionesCarousel"
-						data-bs-slide-to="3"
-						aria-label="Promoción 4: Pausa Helada"
-					></button>
-					<button
-						type="button"
-						data-bs-target="#promocionesCarousel"
-						data-bs-slide-to="4"
-						aria-label="Promoción 5: Degustación de Especialidad"
-					></button>
-					<button
-						type="button"
-						data-bs-target="#promocionesCarousel"
-						data-bs-slide-to="5"
-						aria-label="Promoción 6: Club Pausa"
-					></button>
-				</div>
-
-				<!-- Diapositivas con los Artículos de Promoción -->
-				<div class="carousel-inner">
-					<!-- Promo 1: Combo mañanero -->
-					<div class="carousel-item active">
-						<div class="row justify-content-center">
-							<div class="col-lg-11 col-xl-10">
-								<article class="promo-carousel-card">
-									<div class="row g-0 h-100 align-items-center">
-										<div class="col-md-6">
-											<img
-												src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1000&q=85"
-												alt="Combo mañanero: café y croissant"
-												class="promo-carousel-img"
-											/>
-										</div>
-										<div class="col-md-6">
-											<div class="promo-content">
-												<span class="pill">Lunes a viernes</span>
-												<h2>Combo mañanero</h2>
-												<p>
-													Comenzá el día con la combinación ideal: café filtrado
-													de tostado medio o espresso doble con un croissant de
-													mantequilla recién horneado.
-												</p>
-												<div class="product-bottom mt-4">
-													<strong>$5.90</strong>
-													<button
-														class="add-button"
-														data-product="Combo mañanero"
-														data-price="5.9"
-														data-image="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1000&q=85"
-													>
-														+ Agregar al pedido
-													</button>
-												</div>
+			<!-- Diapositivas con los Artículos de Promoción -->
+			<div class="carousel-inner">
+				<!-- Promo 1: Combo mañanero -->
+				<div class="carousel-item active">
+					<div class="row justify-content-center">
+						<div class="col-lg-11 col-xl-10">
+							<article class="promo-carousel-card">
+								<div class="row g-0 h-100 align-items-center">
+									<div class="col-md-6">
+										<img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1000&q=85"
+											alt="Combo mañanero: café y croissant" class="promo-carousel-img" />
+									</div>
+									<div class="col-md-6">
+										<div class="promo-content">
+											<span class="pill">Lunes a viernes</span>
+											<h2>Combo mañanero</h2>
+											<p>
+												Comenzá el día con la combinación ideal: café filtrado
+												de tostado medio o espresso doble con un croissant de
+												mantequilla recién horneado.
+											</p>
+											<div class="product-bottom mt-4">
+												<strong>$5.90</strong>
+												<button class="add-button" data-product="Combo mañanero"
+													data-price="5.9"
+													data-image="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1000&q=85">
+													+ Agregar al pedido
+												</button>
 											</div>
 										</div>
 									</div>
-								</article>
-							</div>
-						</div>
-					</div>
-
-					<!-- Promo 2: Tarde dulce para compartir -->
-					<div class="carousel-item">
-						<div class="row justify-content-center">
-							<div class="col-lg-11 col-xl-10">
-								<article class="promo-carousel-card">
-									<div class="row g-0 h-100 align-items-center">
-										<div class="col-md-6">
-											<img
-												src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1000&q=85"
-												alt="Combo tarde dulce: lattes y cheesecake"
-												class="promo-carousel-img"
-											/>
-										</div>
-										<div class="col-md-6">
-											<div class="promo-content">
-												<span class="pill">Todos los días desde las 16:00</span>
-												<h2>Tarde dulce</h2>
-												<p>
-													El momento perfecto para compartir: dos lattes suaves
-													con leche texturizada y una generosa porción de
-													cheesecake artesanal de frutos rojos.
-												</p>
-												<div class="product-bottom mt-4">
-													<strong>$11.20</strong>
-													<button
-														class="add-button"
-														data-product="Combo tarde dulce"
-														data-price="11.2"
-														data-image="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1000&q=85"
-													>
-														+ Agregar al pedido
-													</button>
-												</div>
-											</div>
-										</div>
-									</div>
-								</article>
-							</div>
-						</div>
-					</div>
-
-					<!-- Promo 3: Brunch de la casa -->
-					<div class="carousel-item">
-						<div class="row justify-content-center">
-							<div class="col-lg-11 col-xl-10">
-								<article class="promo-carousel-card">
-									<div class="row g-0 h-100 align-items-center">
-										<div class="col-md-6">
-											<img
-												src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1000&q=85"
-												alt="Brunch de la casa: sandwich, cold brew y brownie"
-												class="promo-carousel-img"
-											/>
-										</div>
-										<div class="col-md-6">
-											<div class="promo-content">
-												<span class="pill">Sábados y domingos</span>
-												<h2>Brunch de la casa</h2>
-												<p>
-													Experiencia completa de fin de semana: sandwich
-													caprese en pan de masa madre, cold brew infusionado
-													en frío por 18hs y brownie tibio de cacao 70%.
-												</p>
-												<div class="product-bottom mt-4">
-													<strong>$12.50</strong>
-													<button
-														class="add-button"
-														data-product="Brunch de la casa"
-														data-price="12.5"
-														data-image="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1000&q=85"
-													>
-														+ Agregar al pedido
-													</button>
-												</div>
-											</div>
-										</div>
-									</div>
-								</article>
-							</div>
-						</div>
-					</div>
-
-					<!-- Promo 4: Pausa Helada (Nueva) -->
-					<div class="carousel-item">
-						<div class="row justify-content-center">
-							<div class="col-lg-11 col-xl-10">
-								<article class="promo-carousel-card">
-									<div class="row g-0 h-100 align-items-center">
-										<div class="col-md-6">
-											<img
-												src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=1000&q=85"
-												alt="Pausa Helada: Affogato y cookies"
-												class="promo-carousel-img"
-											/>
-										</div>
-										<div class="col-md-6">
-											<div class="promo-content">
-												<span class="pill">Especial tardes</span>
-												<h2>Pausa Helada</h2>
-												<p>
-													El contraste más tentador: affogato de helado de
-													vainilla natural con doble shot de espresso recién
-													extraído, acompañado de dos cookies rústicas con chips
-													de chocolate.
-												</p>
-												<div class="product-bottom mt-4">
-													<strong>$6.80</strong>
-													<button
-														class="add-button"
-														data-product="Pausa Helada"
-														data-price="6.8"
-														data-image="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=1000&q=85"
-													>
-														+ Agregar al pedido
-													</button>
-												</div>
-											</div>
-										</div>
-									</div>
-								</article>
-							</div>
-						</div>
-					</div>
-
-					<!-- Promo 5: Degustación de Especialidad (Nueva) -->
-					<div class="carousel-item">
-						<div class="row justify-content-center">
-							<div class="col-lg-11 col-xl-10">
-								<article class="promo-carousel-card">
-									<div class="row g-0 h-100 align-items-center">
-										<div class="col-md-6">
-											<img
-												src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=1000&q=85"
-												alt="Degustación de Especialidad: Café V60 y Carrot Cake"
-												class="promo-carousel-img"
-											/>
-										</div>
-										<div class="col-md-6">
-											<div class="promo-content">
-												<span class="pill">Edición Barista</span>
-												<h2>Degustación de Especialidad</h2>
-												<p>
-													Para amantes del buen café: método filtrado V60 con
-													grano de origen único seleccionado (notas florales y
-													cítricas) maridado con porción de Carrot Cake con
-													frosting de queso crema y nueces.
-												</p>
-												<div class="product-bottom mt-4">
-													<strong>$9.90</strong>
-													<button
-														class="add-button"
-														data-product="Degustación de Especialidad"
-														data-price="9.9"
-														data-image="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=1000&q=85"
-													>
-														+ Agregar al pedido
-													</button>
-												</div>
-											</div>
-										</div>
-									</div>
-								</article>
-							</div>
-						</div>
-					</div>
-
-					<!-- Promo 6 / Fidelización: Tarjeta Club Pausa -->
-					<div class="carousel-item">
-						<div class="row justify-content-center">
-							<div class="col-lg-11 col-xl-10">
-								<article class="promo-carousel-card promo-dark">
-									<div class="row g-0 h-100 align-items-center">
-										<div class="col-md-6">
-											<img
-												src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1000&q=85"
-												alt="Tarjeta Club Pausa fidelización"
-												class="promo-carousel-img"
-											/>
-										</div>
-										<div class="col-md-6">
-											<div class="promo-content">
-												<span class="pill pill-light">Club Pausa</span>
-												<h2>Tu sexto café va por la casa.</h2>
-												<p>
-													Queremos premiar tu fidelidad: acumulá seis visitas o
-													pedidos y te invitamos una bebida especial de nuestra
-													carta a elección. Pedí tu membresía en caja o
-													contáctanos.
-												</p>
-												<a href="contacto.html" class="btn btn-cream mt-3">
-													Quiero ser parte <span>→</span>
-												</a>
-											</div>
-										</div>
-									</div>
-								</article>
-							</div>
+								</div>
+							</article>
 						</div>
 					</div>
 				</div>
 
-				<!-- Botones de Control Anterior / Siguiente -->
-				<button
-					class="carousel-control-prev promo-control-btn"
-					type="button"
-					data-bs-target="#promocionesCarousel"
-					data-bs-slide="prev"
-					aria-label="Promoción anterior"
-				>
-					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-					<span class="visually-hidden">Anterior</span>
-				</button>
-				<button
-					class="carousel-control-next promo-control-btn"
-					type="button"
-					data-bs-target="#promocionesCarousel"
-					data-bs-slide="next"
-					aria-label="Promoción siguiente"
-				>
-					<span class="carousel-control-next-icon" aria-hidden="true"></span>
-					<span class="visually-hidden">Siguiente</span>
-				</button>
-			</div>
-		</main>
+				<!-- Promo 2: Tarde dulce para compartir -->
+				<div class="carousel-item">
+					<div class="row justify-content-center">
+						<div class="col-lg-11 col-xl-10">
+							<article class="promo-carousel-card">
+								<div class="row g-0 h-100 align-items-center">
+									<div class="col-md-6">
+										<img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1000&q=85"
+											alt="Combo tarde dulce: lattes y cheesecake" class="promo-carousel-img" />
+									</div>
+									<div class="col-md-6">
+										<div class="promo-content">
+											<span class="pill">Todos los días desde las 16:00</span>
+											<h2>Tarde dulce</h2>
+											<p>
+												El momento perfecto para compartir: dos lattes suaves
+												con leche texturizada y una generosa porción de
+												cheesecake artesanal de frutos rojos.
+											</p>
+											<div class="product-bottom mt-4">
+												<strong>$11.20</strong>
+												<button class="add-button" data-product="Combo tarde dulce"
+													data-price="11.2"
+													data-image="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1000&q=85">
+													+ Agregar al pedido
+												</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</article>
+						</div>
+					</div>
+				</div>
 
-		<!-- ==========================================
+				<!-- Promo 3: Brunch de la casa -->
+				<div class="carousel-item">
+					<div class="row justify-content-center">
+						<div class="col-lg-11 col-xl-10">
+							<article class="promo-carousel-card">
+								<div class="row g-0 h-100 align-items-center">
+									<div class="col-md-6">
+										<img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1000&q=85"
+											alt="Brunch de la casa: sandwich, cold brew y brownie"
+											class="promo-carousel-img" />
+									</div>
+									<div class="col-md-6">
+										<div class="promo-content">
+											<span class="pill">Sábados y domingos</span>
+											<h2>Brunch de la casa</h2>
+											<p>
+												Experiencia completa de fin de semana: sandwich
+												caprese en pan de masa madre, cold brew infusionado
+												en frío por 18hs y brownie tibio de cacao 70%.
+											</p>
+											<div class="product-bottom mt-4">
+												<strong>$12.50</strong>
+												<button class="add-button" data-product="Brunch de la casa"
+													data-price="12.5"
+													data-image="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1000&q=85">
+													+ Agregar al pedido
+												</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</article>
+						</div>
+					</div>
+				</div>
+
+				<!-- Promo 4: Pausa Helada (Nueva) -->
+				<div class="carousel-item">
+					<div class="row justify-content-center">
+						<div class="col-lg-11 col-xl-10">
+							<article class="promo-carousel-card">
+								<div class="row g-0 h-100 align-items-center">
+									<div class="col-md-6">
+										<img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=1000&q=85"
+											alt="Pausa Helada: Affogato y cookies" class="promo-carousel-img" />
+									</div>
+									<div class="col-md-6">
+										<div class="promo-content">
+											<span class="pill">Especial tardes</span>
+											<h2>Pausa Helada</h2>
+											<p>
+												El contraste más tentador: affogato de helado de
+												vainilla natural con doble shot de espresso recién
+												extraído, acompañado de dos cookies rústicas con chips
+												de chocolate.
+											</p>
+											<div class="product-bottom mt-4">
+												<strong>$6.80</strong>
+												<button class="add-button" data-product="Pausa Helada" data-price="6.8"
+													data-image="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=1000&q=85">
+													+ Agregar al pedido
+												</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</article>
+						</div>
+					</div>
+				</div>
+
+				<!-- Promo 5: Degustación de Especialidad (Nueva) -->
+				<div class="carousel-item">
+					<div class="row justify-content-center">
+						<div class="col-lg-11 col-xl-10">
+							<article class="promo-carousel-card">
+								<div class="row g-0 h-100 align-items-center">
+									<div class="col-md-6">
+										<img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=1000&q=85"
+											alt="Degustación de Especialidad: Café V60 y Carrot Cake"
+											class="promo-carousel-img" />
+									</div>
+									<div class="col-md-6">
+										<div class="promo-content">
+											<span class="pill">Edición Barista</span>
+											<h2>Degustación de Especialidad</h2>
+											<p>
+												Para amantes del buen café: método filtrado V60 con
+												grano de origen único seleccionado (notas florales y
+												cítricas) maridado con porción de Carrot Cake con
+												frosting de queso crema y nueces.
+											</p>
+											<div class="product-bottom mt-4">
+												<strong>$9.90</strong>
+												<button class="add-button" data-product="Degustación de Especialidad"
+													data-price="9.9"
+													data-image="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=1000&q=85">
+													+ Agregar al pedido
+												</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</article>
+						</div>
+					</div>
+				</div>
+
+				<!-- Promo 6 / Fidelización: Tarjeta Club Pausa -->
+				<div class="carousel-item">
+					<div class="row justify-content-center">
+						<div class="col-lg-11 col-xl-10">
+							<article class="promo-carousel-card promo-dark">
+								<div class="row g-0 h-100 align-items-center">
+									<div class="col-md-6">
+										<img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1000&q=85"
+											alt="Tarjeta Club Pausa fidelización" class="promo-carousel-img" />
+									</div>
+									<div class="col-md-6">
+										<div class="promo-content">
+											<span class="pill pill-light">Club Pausa</span>
+											<h2>Tu sexto café va por la casa.</h2>
+											<p>
+												Queremos premiar tu fidelidad: acumulá seis visitas o
+												pedidos y te invitamos una bebida especial de nuestra
+												carta a elección. Pedí tu membresía en caja o
+												contáctanos.
+											</p>
+											<a href="contacto.html" class="btn btn-cream mt-3">
+												Quiero ser parte <span>→</span>
+											</a>
+										</div>
+									</div>
+								</div>
+							</article>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Botones de Control Anterior / Siguiente -->
+			<button class="carousel-control-prev promo-control-btn" type="button" data-bs-target="#promocionesCarousel"
+				data-bs-slide="prev" aria-label="Promoción anterior">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Anterior</span>
+			</button>
+			<button class="carousel-control-next promo-control-btn" type="button" data-bs-target="#promocionesCarousel"
+				data-bs-slide="next" aria-label="Promoción siguiente">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Siguiente</span>
+			</button>
+		</div>
+	</main>
+
+	<!-- ==========================================
 		     Pie de Página (Footer)
 		     ========================================== -->
-		<footer class="site-footer">
-			<div class="container d-flex flex-wrap justify-content-between gap-3">
-				<span>© <span data-year></span> Pausa Café</span>
-				<span>Hecho para disfrutar despacio.</span>
-			</div>
-		</footer>
+	<footer class="site-footer">
+		<div class="container d-flex flex-wrap justify-content-between gap-3">
+			<span>© <span data-year></span> Pausa Café</span>
+			<span>Hecho para disfrutar despacio.</span>
+		</div>
+	</footer>
 
-		<!-- Notificación emergente Toast -->
-		<div class="toast-message" role="status"></div>
+	<!-- Notificación emergente Toast -->
+	<div class="toast-message" role="status"></div>
 
-		<!-- Scripts de Bootstrap y lógica JS -->
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-		<script src="../js/main.js"></script>
-	</body>
+	<!-- Scripts de Bootstrap y lógica JS -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="../js/main.js"></script>
+</body>
+
 </html>
