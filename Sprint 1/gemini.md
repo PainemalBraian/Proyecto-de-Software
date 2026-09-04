@@ -200,19 +200,21 @@ skills:
       - "crear contacto"
       - "formulario contacto"
     rules:
-      - Formulario con campos nombre, email y mensaje, usando validación
-        de Bootstrap 5 (clases was-validated, gestionadas por main.js).
+      - Formulario con campos nombre, email (con validación de estructura y
+        dominio .com o equivalente) y mensaje, usando validación de
+        Bootstrap 5 (clases was-validated gestionadas por main.js).
       - Botón de envío con estilo .btn-coffee.
       - Incluir dirección física (Buenos Aires), horarios de lunes a
         domingo, correo y teléfono de contacto.
-      - Incluir mapa embebido o referencia visual de ubicación.
+      - Minimapa embebido e interactivo (.map-card) que localiza la sucursal
+        en Buenos Aires con enlace directo a mapa ampliado.
       - No duplicar lógica de validación: debe reutilizar las funciones
         centralizadas en main.js (ver InteractividadCafe).
 
   - name: CrearReservasCafe
     description: >
-      Genera pages/reservas.html: carrito de pedidos dinámico y formulario
-      de reserva demostrativo.
+      Genera pages/reservas.html: carrito de pedidos dinámico con mini imágenes
+      y formulario de reserva demostrativo con validaciones.
     depends_on: [EstructuraBaseCafe, EstilosGlobalesCafe, ComponentesCafe]
     triggers:
       - "crear reservas"
@@ -220,9 +222,13 @@ skills:
       - "página mi pedido"
     rules:
       - Contenedor donde main.js renderiza los productos del carrito
-        (getCart/renderCart), con controles de cantidad (+ / -), botón de
-        eliminar y total calculado en $.
-      - Formulario de reserva de mesa/pedido con validación en tiempo real.
+        (getCart/renderCart), mostrando la mini imagen correspondiente de
+        cada artículo (.cart-item-img), controles de cantidad (+ / -),
+        botón de eliminar y total calculado en $.
+      - Formulario de reserva con validación en tiempo real:
+          - Nombre completo requerido.
+          - Fecha y hora no previa al momento actual (min dinámico y validación JS).
+          - Email válido con dominio/TLD.
       - Antes de confirmar la reserva, verificar que el carrito tenga al
         menos un producto (regla aplicada por main.js, no por esta página).
       - Estado vacío del carrito debe mostrar un mensaje claro y amigable.
@@ -250,12 +256,15 @@ skills:
           - updateCount(): sincroniza el contador visual del navbar
             (.cart-count) en todas las páginas.
           - renderCart(): dibuja los artículos en reservas.html, con
-            controles de cantidad, eliminación y cálculo del total.
+            mini imagen del producto, controles de cantidad, eliminación
+            y cálculo del total.
       - toast(message): notificación flotante de feedback (agregar
         producto, enviar formulario), reutilizando el componente Toast de
         ComponentesCafe.
       - Validación de formularios con clases was-validated de Bootstrap 5;
-        mensajes de error claros y en español.
+        mensajes de error claros y en español:
+          - Validación estricta de emails requiriendo dominio (.com, etc.).
+          - Validación de fecha en reservas para impedir fechas pasadas.
       - Antes de procesar una reserva, comprobar que haya al menos un
         producto en el carrito.
       - Insertar automáticamente el año actual en los elementos con

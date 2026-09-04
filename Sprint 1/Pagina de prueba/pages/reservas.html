@@ -96,27 +96,37 @@
 						<h2>Datos de reserva</h2>
 						
 						<!-- Campo: Nombre del cliente -->
-						<label for="reservationName">Nombre</label>
-						<input
-							id="reservationName"
-							type="text"
-							required
-							minlength="2"
-							placeholder="Tu nombre"
-						/>
+						<div class="form-field-wrap">
+							<label for="reservationName">Nombre</label>
+							<input
+								id="reservationName"
+								type="text"
+								required
+								minlength="2"
+								placeholder="Tu nombre completo"
+							/>
+							<div class="invalid-feedback">Por favor ingresa tu nombre.</div>
+						</div>
 						
 						<!-- Campo: Día y hora previstos -->
-						<label for="reservationDate">Día y hora</label>
-						<input id="reservationDate" type="datetime-local" required />
+						<div class="form-field-wrap">
+							<label for="reservationDate">Día y hora</label>
+							<input id="reservationDate" type="datetime-local" required />
+							<div class="invalid-feedback">Selecciona una fecha y hora no previa a la actual.</div>
+						</div>
 						
 						<!-- Campo: Email de confirmación -->
-						<label for="reservationEmail">Email</label>
-						<input
-							id="reservationEmail"
-							type="email"
-							required
-							placeholder="tu@email.com"
-						/>
+						<div class="form-field-wrap">
+							<label for="reservationEmail">Email</label>
+							<input
+								id="reservationEmail"
+								type="email"
+								required
+								pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+								placeholder="tu@email.com"
+							/>
+							<div class="invalid-feedback">Ingresa un correo electrónico válido (ej: nombre@correo.com).</div>
+						</div>
 						
 						<!-- Desglose de importe total calculado en tiempo real -->
 						<div class="total-line">

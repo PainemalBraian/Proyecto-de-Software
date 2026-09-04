@@ -47,11 +47,12 @@ Pagina de prueba/
 * **`equipo.html` (Nosotros / Staff)**:
   * Presentación del equipo humano detrás de la experiencia (Valentina - Barista, Martín - Tostador, Lucía - Pastelera, Tomás - Encargado).
 * **`contacto.html` (Contacto y Ubicación)**:
-  * Formulario con validación en tiempo real (Nombre, Email y Mensaje).
+  * Formulario con validación en tiempo real (Nombre, Email con verificación de dominio .com y Mensaje).
   * Información física: dirección en Buenos Aires, horarios de lunes a domingo, correo y teléfono de contacto.
+  * Minimapa interactivo embebido (`.map-card`) para ubicar fácilmente el local.
 * **`reservas.html` (Mi Pedido y Reserva Demostrativa)**:
-  * Carrito de compras interactivo que renderiza los productos agregados, permite ajustar cantidades (+ / -), eliminar artículos y calcula el total estimado.
-  * Formulario de reserva de mesa/pedido con validación.
+  * Carrito de pedidos interactivo que renderiza mini imágenes de cada artículo, controles de cantidad (+ / -), eliminación y total calculado.
+  * Formulario de reserva con validación completa: nombre, email con dominio y fecha no previa a la actual.
 
 ---
 

@@ -107,9 +107,10 @@
 									name="email"
 									type="email"
 									required
+									pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
 									placeholder="tu@email.com"
 								/>
-								<div class="invalid-feedback">Ingresa un email válido.</div>
+								<div class="invalid-feedback">Ingresa un email válido con dominio (ej: tu@email.com).</div>
 							</div>
 
 							<!-- Campo: Mensaje -->
@@ -123,7 +124,7 @@
 									minlength="10"
 									placeholder="¿En qué podemos ayudarte?"
 								></textarea>
-								<div class="invalid-feedback">Cuéntanos un poco más.</div>
+								<div class="invalid-feedback">Cuéntanos un poco más (mínimo 10 caracteres).</div>
 							</div>
 
 							<!-- Botón de Envío -->
@@ -136,7 +137,7 @@
 					</form>
 				</div>
 
-				<!-- Información de Contacto, Dirección y Horarios -->
+				<!-- Información de Contacto, Dirección, Horarios y Minimapa -->
 				<div class="col-lg-4 offset-lg-1 contact-details">
 					<h2>Visítanos</h2>
 					<p>Av. de la Paz 245<br />Buenos Aires, Argentina</p>
@@ -151,6 +152,36 @@
 						<a href="mailto:hola@pausacafe.com">hola@pausacafe.com</a><br />
 						<a href="tel:+541155500022">+54 11 5550 0022</a>
 					</p>
+
+					<!-- Minimapa de Localización -->
+					<div class="map-card mt-4">
+						<div class="map-header">
+							<span class="map-pin">📍</span>
+							<div>
+								<strong>Pausa Café Central</strong>
+								<small class="d-block">Palermo Soho · Buenos Aires</small>
+							</div>
+						</div>
+						<div class="map-wrapper">
+							<iframe
+								title="Ubicación de Pausa Café en Buenos Aires"
+								class="map-frame"
+								src="https://www.openstreetmap.org/export/embed.html?bbox=-58.4320%2C-34.5900%2C-58.4120%2C-34.5750&amp;layer=mapnik&amp;marker=-34.5825%2C-58.4220"
+								loading="lazy"
+								referrerpolicy="no-referrer-when-downgrade"
+							></iframe>
+						</div>
+						<div class="map-footer">
+							<a
+								href="https://www.openstreetmap.org/?mlat=-34.5825&amp;mlon=-58.4220#map=16/-34.5825/-58.4220"
+								target="_blank"
+								rel="noopener noreferrer"
+								class="map-link"
+							>
+								Ver mapa ampliado y cómo llegar <span>↗</span>
+							</a>
+						</div>
+					</div>
 				</div>
 			</div>
 		</main>
