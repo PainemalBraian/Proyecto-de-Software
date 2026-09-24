@@ -1,7 +1,7 @@
 <?php
 /**
  * ==============================================================================
- * Listado Principal de Usuarios (Dashboard ABM)
+ * Panel Principal / Listado de Usuarios — Tema Chocolate & Crema con Bootstrap 5
  * Proyecto: Sprint 2 — ABM Usuarios y Roles
  * ==============================================================================
  */
@@ -10,17 +10,17 @@ require_once __DIR__ . '/backend/auth.php';
 require_once __DIR__ . '/backend/usuarios.php';
 require_once __DIR__ . '/backend/roles.php';
 
-// Verificar que el usuario tenga sesión activa
+// Proteger la vista con autenticación
 requiereAutenticacion();
 
 $usuarioActual = obtenerUsuarioLogueado();
 $mensajeFlash = obtenerMensajeFlash();
 
-// Obtener los datos para la vista
+// Obtener datos
 $usuarios = listarUsuarios();
 $roles = listarRoles();
 
-// Métricas para los KPI cards
+// Métricas KPI
 $totalUsuarios = count($usuarios);
 $totalRoles = count($roles);
 $totalAdmins = count(array_filter($usuarios, fn($u) => (int)$u['role'] === 1));
@@ -31,40 +31,48 @@ $totalAdmins = count(array_filter($usuarios, fn($u) => (int)$u['role'] === 1));
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gestión de Usuarios — Panel de Control</title>
+  
   <!-- Google Fonts: Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <!-- Estilos Globales -->
+  
+  <!-- Bootstrap 5.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  
+  <!-- Estilos Personalizados: Chocolate & Crema -->
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-  <!-- Barra de Navegación Superior (Topbar) -->
-  <header class="topbar">
-    <div class="topbar-container">
-      <a href="index.php" class="brand-logo">
-        <span class="brand-icon">⚡</span>
-        <span>Panel de Gestión</span>
+  <!-- Barra de Navegación Superior -->
+  <header class="topbar-choco">
+    <div class="container-xl d-flex align-items-center justify-content-between py-2">
+      <a href="index.php" class="d-flex align-items-center gap-2 text-decoration-none">
+        <span class="brand-icon-choco">☕</span>
+        <span class="fw-bold fs-5" style="color: var(--color-choco-dark);">Panel de Gestión</span>
       </a>
 
-      <nav class="topbar-nav">
-        <a href="index.php" class="nav-link active">
-          👥 Usuarios
+      <nav class="d-flex align-items-center gap-3">
+        <a href="index.php" class="nav-link-choco active">
+          <i class="bi bi-people-fill"></i> Usuarios
         </a>
-        <a href="roles.php" class="nav-link">
-          🛡️ Roles
+        <a href="roles.php" class="nav-link-choco">
+          <i class="bi bi-shield-lock-fill"></i> Roles
         </a>
-        <div class="user-profile-badge">
-          <div class="avatar" title="<?= htmlspecialchars($usuarioActual['nombre_completo']) ?>">
+
+        <div class="d-flex align-items-center gap-2 ps-3 border-start" style="border-color: var(--color-cream-border) !important;">
+          <div class="avatar-choco" title="<?= htmlspecialchars($usuarioActual['nombre_completo']) ?>">
             <?= strtoupper(substr($usuarioActual['username'], 0, 2)) ?>
           </div>
-          <div class="user-meta">
-            <span class="user-name"><?= htmlspecialchars($usuarioActual['nombre_completo']) ?></span>
-            <span class="user-role-label"><?= htmlspecialchars($usuarioActual['rol_nombre']) ?></span>
+          <div class="d-none d-md-flex flex-column text-start">
+            <span class="fw-bold small lh-1" style="color: var(--color-choco-dark);"><?= htmlspecialchars($usuarioActual['nombre_completo']) ?></span>
+            <span class="small text-muted" style="font-size: 0.72rem;"><?= htmlspecialchars($usuarioActual['rol_nombre']) ?></span>
           </div>
-          <a href="logout.php" class="btn btn-secondary btn-sm" title="Cerrar sesión" style="margin-left: 0.5rem;">
-            Salir 🚪
+          <a href="logout.php" class="btn btn-cream btn-sm ms-2" title="Cerrar sesión">
+            <i class="bi bi-box-arrow-right"></i> <span class="d-none d-sm-inline">Salir</span>
           </a>
         </div>
       </nav>
@@ -72,157 +80,177 @@ $totalAdmins = count(array_filter($usuarios, fn($u) => (int)$u['role'] === 1));
   </header>
 
   <!-- Contenedor Principal -->
-  <main class="main-content">
+  <main class="container-xl my-4 flex-grow-1">
     
     <!-- Encabezado de Página -->
-    <div class="page-header">
+    <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
       <div>
-        <h1 class="page-title">Módulo de Usuarios</h1>
-        <p class="page-subtitle">Administra los accesos, credenciales y roles asignados a cada usuario</p>
+        <h1 class="h2 fw-bold mb-1" style="color: var(--color-choco-dark);">Módulo de Usuarios</h1>
+        <p class="text-muted mb-0">Gestiona los accesos, credenciales y perfiles de cada usuario</p>
       </div>
       <div>
-        <a href="formulario.php" class="btn btn-primary">
-          ➕ Nuevo Usuario
+        <a href="formulario.php" class="btn btn-choco">
+          <i class="bi bi-person-plus-fill me-1"></i> Nuevo Usuario
         </a>
       </div>
     </div>
 
-    <!-- Mensajes Flash de Retroalimentación -->
+    <!-- Mensajes Flash -->
     <?php if ($mensajeFlash): ?>
-      <div class="alert alert-<?= htmlspecialchars($mensajeFlash['tipo']) ?>">
-        <div class="alert-content">
+      <div class="alert-choco alert-choco-<?= htmlspecialchars($mensajeFlash['tipo']) ?> mb-4">
+        <div class="d-flex align-items-center gap-2">
+          <i class="bi bi-check-circle-fill"></i>
           <span><?= htmlspecialchars($mensajeFlash['mensaje']) ?></span>
         </div>
-        <button type="button" class="alert-close" aria-label="Cerrar">&times;</button>
+        <button type="button" class="btn-close alert-close" aria-label="Cerrar"></button>
       </div>
     <?php endif; ?>
 
     <!-- Tarjetas de Métricas (KPIs) -->
-    <section class="stats-grid">
-      <div class="stat-card">
-        <div class="stat-info">
-          <h4>Total Usuarios</h4>
-          <div class="stat-number"><?= $totalUsuarios ?></div>
+    <div class="row g-3 mb-4">
+      <div class="col-md-4">
+        <div class="stat-card-choco d-flex align-items-center justify-content-between">
+          <div>
+            <div class="text-uppercase small fw-bold text-muted mb-1" style="letter-spacing: 0.05em;">Total Usuarios</div>
+            <div class="h2 fw-bold mb-0" style="color: var(--color-choco-dark);"><?= $totalUsuarios ?></div>
+          </div>
+          <div class="stat-icon-choco icon-bg-cocoa">
+            <i class="bi bi-people-fill"></i>
+          </div>
         </div>
-        <div class="stat-icon-wrapper icon-purple">👥</div>
       </div>
 
-      <div class="stat-card">
-        <div class="stat-info">
-          <h4>Administradores</h4>
-          <div class="stat-number"><?= $totalAdmins ?></div>
+      <div class="col-md-4">
+        <div class="stat-card-choco d-flex align-items-center justify-content-between">
+          <div>
+            <div class="text-uppercase small fw-bold text-muted mb-1" style="letter-spacing: 0.05em;">Administradores</div>
+            <div class="h2 fw-bold mb-0" style="color: var(--color-caramel);"><?= $totalAdmins ?></div>
+          </div>
+          <div class="stat-icon-choco icon-bg-caramel">
+            <i class="bi bi-shield-check"></i>
+          </div>
         </div>
-        <div class="stat-icon-wrapper icon-blue">🛡️</div>
       </div>
 
-      <div class="stat-card">
-        <div class="stat-info">
-          <h4>Roles Definidos</h4>
-          <div class="stat-number"><?= $totalRoles ?></div>
+      <div class="col-md-4">
+        <div class="stat-card-choco d-flex align-items-center justify-content-between">
+          <div>
+            <div class="text-uppercase small fw-bold text-muted mb-1" style="letter-spacing: 0.05em;">Roles Definidos</div>
+            <div class="h2 fw-bold mb-0" style="color: var(--color-choco-medium);"><?= $totalRoles ?></div>
+          </div>
+          <div class="stat-icon-choco icon-bg-latte">
+            <i class="bi bi-tags-fill"></i>
+          </div>
         </div>
-        <div class="stat-icon-wrapper icon-green">🏷️</div>
       </div>
-    </section>
+    </div>
 
     <!-- Tarjeta Principal con Tabla de Usuarios -->
-    <section class="card">
-      <div class="card-header">
-        <h2 class="card-title">Listado de Usuarios Registrados</h2>
-        <div style="max-width: 300px; width: 100%;">
-          <input 
-            type="text" 
-            id="tabla-buscador" 
-            class="form-input" 
-            placeholder="🔍 Buscar por nombre, email o rol..."
-            aria-label="Buscar en la tabla de usuarios"
-          >
+    <div class="card-choco">
+      <div class="card-header-choco">
+        <h2 class="h5 fw-bold mb-0" style="color: var(--color-choco-dark);">
+          <i class="bi bi-list-nested me-2 text-muted"></i> Usuarios Registrados
+        </h2>
+        <div style="max-width: 320px; width: 100%;">
+          <div class="input-group">
+            <span class="input-group-text bg-white border-end-0" style="border-color: var(--color-cream-border);">
+              <i class="bi bi-search text-muted"></i>
+            </span>
+            <input 
+              type="text" 
+              id="tabla-buscador" 
+              class="form-control form-control-choco border-start-0" 
+              placeholder="Buscar por usuario, email o rol..."
+            >
+          </div>
         </div>
       </div>
 
-      <div class="card-body" style="padding: 0;">
+      <div class="p-0">
         <?php if (empty($usuarios)): ?>
-          <div class="empty-state">
-            <div class="empty-state-icon">👤</div>
-            <h3 class="empty-state-title">No hay usuarios registrados</h3>
-            <p>Comienza creando el primer usuario en el sistema con el botón superior.</p>
+          <div class="text-center py-5 text-muted">
+            <i class="bi bi-person-slash display-4 opacity-50 mb-3 d-block"></i>
+            <h5 class="fw-bold text-dark">No hay usuarios registrados</h5>
+            <p>Utiliza el botón superior para crear el primer usuario del sistema.</p>
           </div>
         <?php else: ?>
           <div class="table-responsive">
-            <table class="data-table">
+            <table class="table-choco">
               <thead>
                 <tr>
                   <th>Usuario</th>
                   <th>Nombre Completo</th>
                   <th>Correo Electrónico</th>
-                  <th>Rol</th>
-                  <th>Fecha de Registro</th>
-                  <th style="text-align: right;">Acciones</th>
+                  <th>Rol Asignado</th>
+                  <th>Fecha Registro</th>
+                  <th class="text-end">Acciones</th>
                 </tr>
               </thead>
               <tbody>
                 <?php foreach ($usuarios as $u): ?>
                   <tr>
                     <td>
-                      <div class="user-cell">
-                        <div class="user-cell-avatar">
+                      <div class="d-flex align-items-center gap-2">
+                        <div class="avatar-choco" style="width: 32px; height: 32px; font-size: 0.75rem;">
                           <?= strtoupper(substr($u['username'], 0, 2)) ?>
                         </div>
                         <div>
-                          <span class="user-cell-name">@<?= htmlspecialchars($u['username']) ?></span>
+                          <strong class="d-block text-dark">@<?= htmlspecialchars($u['username']) ?></strong>
                           <?php if ((int)$u['id'] === (int)$usuarioActual['id']): ?>
-                            <span style="font-size: 0.7rem; background: #e2e8f0; color: #475569; padding: 1px 6px; border-radius: 4px; margin-left: 4px;">Tú</span>
+                            <span class="badge rounded-pill bg-secondary" style="font-size: 0.65rem;">Tú</span>
                           <?php endif; ?>
                         </div>
                       </div>
                     </td>
                     <td>
-                      <?= htmlspecialchars($u['name'] . ' ' . $u['last_name']) ?>
+                      <span class="fw-medium"><?= htmlspecialchars($u['name'] . ' ' . $u['last_name']) ?></span>
                     </td>
                     <td>
-                      <a href="mailto:<?= htmlspecialchars($u['email']) ?>" style="color: var(--color-text-muted);">
+                      <a href="mailto:<?= htmlspecialchars($u['email']) ?>" class="text-muted text-decoration-none">
                         <?= htmlspecialchars($u['email']) ?>
                       </a>
                     </td>
                     <td>
                       <?php 
-                        $badgeClass = 'badge-custom';
-                        if ((int)$u['role'] === 1) $badgeClass = 'badge-admin';
-                        elseif ((int)$u['role'] === 2) $badgeClass = 'badge-editor';
-                        elseif ((int)$u['role'] === 3) $badgeClass = 'badge-guest';
+                        $badgeClass = 'badge-role-custom';
+                        if ((int)$u['role'] === 1) $badgeClass = 'badge-role-admin';
+                        elseif ((int)$u['role'] === 2) $badgeClass = 'badge-role-editor';
+                        elseif ((int)$u['role'] === 3) $badgeClass = 'badge-role-guest';
                       ?>
-                      <span class="badge <?= $badgeClass ?>">
+                      <span class="badge-role <?= $badgeClass ?>">
+                        <i class="bi bi-shield-fill-check"></i>
                         <?= htmlspecialchars($u['role_name']) ?>
                       </span>
                     </td>
-                    <td style="color: var(--color-text-muted); font-size: 0.85rem;">
+                    <td class="text-muted small">
                       <?= date('d/m/Y H:i', strtotime($u['created_at'])) ?>
                     </td>
                     <td>
-                      <div class="actions-group" style="justify-content: flex-end;">
-                        <!-- Botón Editar (GET solo lectura para precargar el formulario) -->
+                      <div class="d-flex align-items-center justify-content-end gap-1">
+                        <!-- Botón Editar (GET solo lectura para precarga) -->
                         <a 
                           href="formulario.php?id=<?= $u['id'] ?>" 
-                          class="btn btn-secondary btn-sm"
+                          class="btn btn-cream btn-sm"
                           title="Editar usuario"
                         >
-                          ✏️ Editar
+                          <i class="bi bi-pencil-square"></i> Editar
                         </a>
 
-                        <!-- Botón Eliminar (Siempre enviado por POST mediante formulario) -->
+                        <!-- Botón Eliminar (Envío por POST con confirmación) -->
                         <form 
                           method="POST" 
                           action="eliminar.php" 
-                          onsubmit="return confirmarEliminacion('¿Estás seguro de que deseas eliminar permanentemente al usuario \'<?= htmlspecialchars(addslashes($u['username'])) ?>\'?');"
-                          style="display: inline;"
+                          onsubmit="return confirmarEliminacion('¿Deseas eliminar permanentemente al usuario \'<?= htmlspecialchars(addslashes($u['username'])) ?>\'?');"
+                          class="d-inline"
                         >
                           <input type="hidden" name="id" value="<?= $u['id'] ?>">
                           <button 
                             type="submit" 
-                            class="btn btn-outline-danger btn-sm"
+                            class="btn btn-outline-danger-choco btn-sm"
                             title="Eliminar usuario"
                             <?= ((int)$u['id'] === (int)$usuarioActual['id']) ? 'disabled title="No puedes eliminarte a ti mismo"' : '' ?>
                           >
-                            🗑️ Eliminar
+                            <i class="bi bi-trash3-fill"></i>
                           </button>
                         </form>
                       </div>
@@ -234,18 +262,20 @@ $totalAdmins = count(array_filter($usuarios, fn($u) => (int)$u['role'] === 1));
           </div>
         <?php endif; ?>
       </div>
-    </section>
+    </div>
 
   </main>
 
   <!-- Pie de Página -->
-  <footer class="footer">
-    <div class="topbar-container" style="justify-content: center;">
-      <p>&copy; <?= date('Y') ?> Sistema de Gestión de Usuarios y Roles — Sprint 2</p>
+  <footer class="footer-choco">
+    <div class="container-xl">
+      <p class="mb-0">&copy; <?= date('Y') ?> Sistema de Gestión de Usuarios y Roles — Sprint 2</p>
     </div>
   </footer>
 
-  <!-- Scripts -->
+  <!-- Bootstrap 5 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Scripts Personalizados -->
   <script src="js/main.js"></script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 /**
  * ==============================================================================
- * Interactividad y Validaciones en Cliente (JavaScript Vanilla)
+ * Interactividad y Validaciones en Cliente (JavaScript Vanilla + Bootstrap 5)
  * Proyecto: Sprint 2 — ABM Usuarios y Roles
  * ==============================================================================
  */
@@ -18,7 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /**
  * Muestra una confirmación nativa antes de proceder con una eliminación.
- * Se utiliza en los formularios con método POST para borrar usuarios o roles.
  * 
  * @param {string} mensaje Texto descriptivo de advertencia.
  * @returns {boolean} True si el usuario confirma, False si cancela.
@@ -30,7 +29,6 @@ function confirmarEliminacion(mensaje) {
 
 /**
  * Valida en el cliente los campos del formulario de usuario antes de enviarlo por POST.
- * Mejora la experiencia de usuario mostrando errores sin recarga de página.
  * 
  * @param {HTMLFormElement} formulario Formulario HTML a validar.
  * @returns {boolean} True si pasa la validación, False si hay errores.
@@ -84,7 +82,7 @@ function validarFormularioUsuario(formulario) {
     }
   }
 
-  // Validar Contraseña (si está presente y es obligatoria o requerida)
+  // Validar Contraseña
   if (password) {
     const isRequired = password.hasAttribute('required') || formulario.dataset.modo === 'alta';
     if (isRequired && !password.value) {
@@ -147,15 +145,15 @@ function validarFormularioLogin(formulario) {
  */
 function mostrarErrorCampo(input, mensaje) {
   input.classList.add('is-invalid');
-  const parent = input.closest('.form-group');
+  const parent = input.closest('.mb-3, .mb-4, .form-group') || input.parentElement;
   if (parent) {
-    let feedback = parent.querySelector('.error-feedback');
+    let feedback = parent.querySelector('.text-danger.small');
     if (!feedback) {
       feedback = document.createElement('div');
-      feedback.className = 'error-feedback';
+      feedback.className = 'text-danger small mt-1 fw-medium error-feedback-dynamic';
       parent.appendChild(feedback);
     }
-    feedback.innerHTML = `<span>⚠️ ${mensaje}</span>`;
+    feedback.innerHTML = `⚠️ ${mensaje}`;
   }
 }
 
@@ -168,7 +166,7 @@ function limpiarErrores(formulario) {
   const invalidInputs = formulario.querySelectorAll('.is-invalid');
   invalidInputs.forEach(input => input.classList.remove('is-invalid'));
 
-  const feedbacks = formulario.querySelectorAll('.error-feedback');
+  const feedbacks = formulario.querySelectorAll('.error-feedback-dynamic');
   feedbacks.forEach(fb => fb.remove());
 }
 
@@ -184,11 +182,11 @@ function inicializarTogglePassword() {
       if (input) {
         if (input.type === 'password') {
           input.type = 'text';
-          btn.innerHTML = '👁️‍🗨️';
+          btn.innerHTML = '<i class="bi bi-eye-slash-fill"></i>';
           btn.setAttribute('title', 'Ocultar contraseña');
         } else {
           input.type = 'password';
-          btn.innerHTML = '👁️';
+          btn.innerHTML = '<i class="bi bi-eye"></i>';
           btn.setAttribute('title', 'Mostrar contraseña');
         }
       }
@@ -197,13 +195,12 @@ function inicializarTogglePassword() {
 }
 
 /**
- * Configura el cierre de alertas y su desvanecimiento automático tras 5 segundos.
+ * Configura el cierre de alertas y su desvanecimiento automático tras 6 segundos.
  */
 function inicializarAlertas() {
-  const alerts = document.querySelectorAll('.alert');
+  const alerts = document.querySelectorAll('.alert-choco, .alert');
   alerts.forEach(alert => {
-    // Botón de cerrar manual
-    const closeBtn = alert.querySelector('.alert-close');
+    const closeBtn = alert.querySelector('.alert-close, .btn-close');
     if (closeBtn) {
       closeBtn.addEventListener('click', () => {
         alert.style.transition = 'opacity 0.25s ease, transform 0.25s ease';
@@ -213,8 +210,7 @@ function inicializarAlertas() {
       });
     }
 
-    // Auto-cierre progresivo si no es de error crítico
-    if (!alert.classList.contains('alert-error')) {
+    if (!alert.classList.contains('alert-choco-error') && !alert.classList.contains('alert-error')) {
       setTimeout(() => {
         if (document.body.contains(alert)) {
           alert.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
@@ -232,7 +228,7 @@ function inicializarAlertas() {
  */
 function inicializarFiltroTabla() {
   const searchInput = document.getElementById('tabla-buscador');
-  const tabla = document.querySelector('.data-table tbody');
+  const tabla = document.querySelector('.table-choco tbody, .data-table tbody');
 
   if (searchInput && tabla) {
     searchInput.addEventListener('input', (e) => {
